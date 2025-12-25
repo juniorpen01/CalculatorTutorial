@@ -18,15 +18,21 @@ Please enter an operation to perform. Format: a+b | a-b | a*b | a/b
 
 	while (true) {
 		double x, y; char oper; Calculator c; // idk why decl all on same line
+
 		if (!(std::cin >> x >> oper >> y)) { // apparenly cin has a bool operator; but ye cin can go fail state and not take any input cuz of it
 			std::cin.clear(); // clears state
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n'); // numeric limit max of stream size; ignores that many until \n
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // numeric limit max of stream size; ignores that many until \n
 			std::cout << "Invalid input\n";
 			continue;
 		}
-		double result =
+		else if (oper == '/' && y == 0) {
+			std::cout << "Invalid division by zero\n";
+			continue;
+		}
+
+		double result = // apparently autos in debugger up to three lines from current line; there is also locals; can also be modded there
 			c.Calculate(x, oper, y);
-		std::cout << "Result is: " << result << '\n';
+		std::cout << "Result of " << x << oper << y << " is: " << result << '\n';
 	}
 }
 
