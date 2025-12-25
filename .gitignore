@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+/.vs
+/CalculatorTutorial/x64/Debug
+/CalculatorTutorial/CalculatorTutorial.vcxproj.user
